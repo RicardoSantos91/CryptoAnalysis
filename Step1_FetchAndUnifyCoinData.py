@@ -2,6 +2,7 @@ from requests import request, session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 import pandas as pd
+import config
 import os
 
 
@@ -18,7 +19,7 @@ parameters = {
 }
 headers = {
     'Accepts': 'application/json',
-    'X-CMC_PRO_API_KEY': 'e8bc1de2-142a-4bfe-81d7-d9185303d87e',
+    'X-CMC_PRO_API_KEY': API_KEY,
 }
 
 
