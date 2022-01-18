@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="882bbb42-0b0e-42dd-8bae-d6400d0b06d8" name="Changes" comment="">
+    <list default="true" id="882bbb42-0b0e-42dd-8bae-d6400d0b06d8" name="Changes" comment="Visualization function created">
+      <change afterPath="$PROJECT_DIR$/4_AnalysisMetrics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dashboarding.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Info.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Step1_FetchAndUnifyCoinData.py" beforeDir="false" afterPath="$PROJECT_DIR$/1_FetchAndUnifyCoinData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Step2_TreatData.py" beforeDir="false" afterPath="$PROJECT_DIR$/2_TreatData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Step3_DataAnalysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/3_DataAnalysisAndOnDemandVisualization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coindata.csv" beforeDir="false" afterPath="$PROJECT_DIR$/coindata.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +27,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -89,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642450599644</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Visualization function created">
+      <created>1642450666124</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1642450666124</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
