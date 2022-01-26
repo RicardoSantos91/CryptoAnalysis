@@ -1,5 +1,7 @@
 import os
 import pandas as pd
+import seaborn as sns
+
 
 def open_csv(file, path=os.getcwd()):
     full_path = os.path.join(path, file)
