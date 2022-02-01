@@ -42,21 +42,56 @@ def connect_to_database(params):
     return conn
 
 
+def columns_python_types_to_sql(col_types):
+
+    col_types = pd.DataFrame(df_coindata.dtypes)
+    col_types.columns = ['column_type']
+    col_types['column_type_sql'] = 'int'
+    col_types['column_type_sql'][col_types['column_type'] == 'object'] = 'varchar'
+    col_types['column_type_sql'][col_types['column_type'] == 'float64'] = 'float'
+
+    return col_types
+
+columns_types = columns_python_types_to_sql(df_coindata.dtypes)
+
+columns_types = columns_types.reset_index(drop=False)
+columns_types = columns_types.drop(['column_type'], axis=1)
+columns_types['sql_table_columns'] = columns_types['index'] + ' ' + columns_types['column_type_sql']
+columns_types = columns_types.drop(['index', 'column_type_sql'], axis=1)
+column_types = columns_types.values
+
+def columns_names_list_to_string(col_names):
+
+    col_names = ', '.join(str(element) for element in col_names)
+    col_names = col_names.replace('.', '_')
+    col_names = col_names.replace('[', '')
+    col_names = col_names.replace(']', '')
+    col_names = col_names.replace('\'', '')
+
+    return col_names
+
+
+col_names = columns_names_list_to_string(column_types)
+
+
+def create_table(conn, table_name):
+
+    sql_create_table = "CREATE TABLE " + table_name + '(' + col_names + ')'
+    cursor = conn.cursor()
+
+    try:
+        cursor.execute(sql_create_table)
+        conn.commit()
+        print('Table ' + table_name + ' created')
+    except (Exception, ps.DatabaseError) as error:
+        print(error)
+
+    return 0
+
+
 connection = connect_to_database(params_dic)
 
-name_table = 'coinmetrics'
-col_names = df_coindata.columns.values
-col_names = [str(element) for element in col_names]
-col_names = ', '.join(col_names)
-
-
-sql_create_table = "create table " + name_table + '(' + col_names + ');'
-
-cursor = connection.cursor()
-
-cursor.execute(sql_create_table)
-
-
+create_table(connection, 'coindata')
 
 
 def copy_using_stringio_to_database(conn, df, table):
@@ -84,4 +119,6 @@ def copy_using_stringio_to_database(conn, df, table):
 copy_using_stringio_to_database(connection, df_coindata, 'coindata')
 
 
-#TODO: Encrypt passwords
+## TODO: Encrypt passwords
+
+## TODO: Create database table
